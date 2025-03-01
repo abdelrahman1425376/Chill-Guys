@@ -1,0 +1,91 @@
+
+@media screen and (min-width: 1024px) {
+.page {
+    display: grid;
+    grid-template-columns: 60rem  20rem;
+    grid-template-rows: 45rem  ;
+    grid-template-areas: "Logo Login";
+   
+  
+    }
+    #Logo
+    {
+     margin-top: 90px;
+     margin-left: 300px;
+
+    }
+    #HeaderLogin {
+        grid-column: 1 / 2;
+        grid-row: 1/2;
+        background-color: black;
+    }
+    #LoginInfromation
+    {
+        grid-column: 2 / 3;
+        grid-row: 1/2;
+    }
+    #UserLogin
+    {
+        margin-top: 170px;
+    }
+    #username
+    {
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+    #password
+    {
+        margin-left: 30px;
+    }
+    #LoginButton
+    {
+        margin-left: 30px;
+    }
+}
+
+
+@media screen and (max-width:767px) {
+    .page {
+        display: grid;
+        grid-template-columns: 15rem  14rem;
+        grid-template-rows: 45rem  ;
+        grid-template-areas: "Logo Login";
+       
+      
+        }
+        #Logo
+        {
+         margin-top: 90px;
+    
+        }
+        #HeaderLogin {
+            grid-column: 1 / 2;
+            grid-row: 1/2;
+            background-color: black;
+        }
+        #LoginInfromation
+        {
+            grid-column: 2 / 3;
+            grid-row: 1/2;
+        }
+        #UserLogin
+        {
+            margin-top: 170px;
+        }
+        #username
+        {
+            margin-left: 30px;
+            margin-bottom: 30px;
+        }
+        #password
+        {
+            margin-left: 30px;
+            margin-bottom: 30px;
+
+        }
+        #LoginButton
+        {
+            margin-left: 90px;
+        }
+
+}
