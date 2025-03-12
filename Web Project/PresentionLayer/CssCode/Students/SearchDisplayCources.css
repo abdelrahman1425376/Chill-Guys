@@ -1,106 +1,65 @@
-@media screen and (min-width: 1024px) {
-    .page {
-        display: grid;
-        grid-template-columns: 93rem  ;
-        grid-template-rows: 10rem 5rem 30rem ;
-        grid-template-areas: "AllPage "
-                        "Services Header cources";  
-        }
-        #serach {
-            grid-column: 1 / 2;
-            grid-row: 2/3;
-            background-color: gainsboro;
-            padding-left: 500px;
-        }
-        #services
-        {
-            grid-column: 1 / 2;
-            grid-row: 1/2;
-            background-color: gainsboro;
-        }
-        #ServicesNavgation
-        {
-            display: flex;
-            flex-direction: row;
-          gap: 1rem;
-          list-style-type: none;
-          justify-content: end;
-    
-        }
-        #cources
-        {
-            grid-column: 1 / 2;
-            grid-row: 3/4;
-            background-color: gainsboro;
-            padding-left: 500px;
-    
-    
-        }
-        #avaliableCource
-        {
-            padding-left: 30px;
-        }
-        #headerCourceTable
-        {
-            font-size: 20px;
-        }
-        .eleCourceTable
-        {
-            padding-right: 70px;
-    
-        }
-    
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+#services {
+    background-color: #333;
+    padding: 15px;
+}
+#ServicesNavigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px ;
 }
 
 
-@media screen and (max-width:767px) {
-    .page {
-        display: grid;
-        grid-template-columns: 37rem  ;
-        grid-template-rows: 10rem 5rem 30rem ;
-        grid-template-areas: "AllPage "
-                        "Services Header cources";  
-        }
-        #serach {
-            grid-column: 1 / 2;
-            grid-row: 2/3;
-            background-color: gainsboro;
-        }
-        #services
-        {
-            grid-column: 1 / 2;
-            grid-row: 1/2;
-            background-color: gainsboro;
-        }
-        #ServicesNavgation
-        {
-            display: flex;
-            flex-direction: row;
-          gap: 1rem;
-          list-style-type: none;
-          justify-content: end;
-    
-        }
-        #cources
-        {
-            grid-column: 1 / 2;
-            grid-row: 3/4;
-            background-color: gainsboro;
-    
-    
-        }
-        #avaliableCource
-        {
-            padding-left: 30px;
-        }
-        #headerCourceTable
-        {
-            font-size: 20px;
-        }
-        .eleCourceTable
-        {
-            padding-right: 70px;
-    
-        }
+#search-section {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid white;
 }
 
+#searchForm {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#searchForm select, #searchForm input, #searchForm button {
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.courses {
+    padding: 20px;
+    text-align: center;
+}
+
+#availableCourses {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+#availableCourses th, #availableCourses td {
+    padding: 10px;
+    border: 1px solid white;
+}
+
+#availableCourses th {
+    background-color: black;
+    color: white;
+}

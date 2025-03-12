@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+#services {
+    background-color: #333;
+    padding: 15px;
+}
+#ServicesNavigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px ;
+}
+
+
+#search-section {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid white;
+}
+
+#searchForm {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#searchForm select, #searchForm input, #searchForm button {
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.courses {
+    padding: 20px;
+    text-align: center;
+}
+
+#availableCourses {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+#availableCourses th, #availableCourses td {
+    padding: 10px;
+    border: 1px solid white;
+}
+
+#availableCourses th {
+    background-color: black;
+    color: white;
+}

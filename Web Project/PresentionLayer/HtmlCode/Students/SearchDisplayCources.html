@@ -3,59 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../CssCode/Students/SearchDisplayCources.css">
-
-</head>
+    <title>Register for a Class</title>
+    <link rel="stylesheet" href="../../CssCode/Students/RegisterCource.css"></head>
 <body class="page">
+
     <header id="services">
-        <nav >
-            <ul id="ServicesNavgation">
-                <li ><a class="eleServicesNavgation" href="#">DisplayCource</a></li>           
-                <li ><a class="eleServicesNavgation" href="#">RegisterCource</a></li>           
-            <li ><a class="eleServicesNavgation" href="#">LogOut</a></li>           
-   
-        </ul>
-            </nav>
-
+        <nav>
+            <ul id="ServicesNavigation">
+                <li><a class="nav-link" id="UserName" href="#">UserName</a></li>
+                <li><a class="nav-link" href="#">Display Courses</a></li>
+                <li><a class="nav-link" href="#">Register Course</a></li>
+                <li><a class="nav-link" href="#">Log Out</a></li>
+            </ul>
+        </nav>
     </header>
-   <main id="serach">
-    <select id="TypeSearch" name="TypeSearch">
-        <option value="Name">Name</option>
-        <option value="catogery">catogery</option> 
-    </select>
-    <select id="courses" name="courses">
-       
-    </select>
-    <input type="text" id="search" name="search" required>
-    <button type="submit">Search</button>
-   </main>
-   <main id="cources">
-    <table  id="avaliableCource">
-        <thead>
-            <tr >
-                <th class="eleCourceTable">ID </th>
-                <th class="eleCourceTable">Course Name</th>
-                <th class="eleCourceTable">Category</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>JavaScript Basics</td>
-                <td>Programming</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>SQL for Beginners</td>
-                <td>Databases</td>
-            </tr>
-          
-        </tbody>
-    </table>
 
-   </main>
+    <main id="search-section">
+        <form id="searchForm">
+            <label for="TypeSearch">Search By:</label>
+            <select id="TypeSearch" name="TypeSearch">
+                <option value="Name">Name</option>
+                <option value="category">Category</option> 
+            </select>
+            <input type="text" id="search" name="search" placeholder="Enter search term" required>
+            <button type="submit">Search</button>
+        </form>
+    </main>
 
-    
+    <main class="courses">
+        <table id="availableCourses">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Category</th>                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>JavaScript Basics</td>
+                    <td>Programming</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
 </body>
 </html>
