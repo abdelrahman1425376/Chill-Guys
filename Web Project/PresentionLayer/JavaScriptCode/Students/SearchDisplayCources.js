@@ -2,7 +2,6 @@ let coursesInfo = "../../../DataBaseCode/CourceDataBase.json";
 window.onload = initalScreen;
 document.getElementById('submit').addEventListener('click', SearchCource);
 
-
 async function SearchCource(e) {
     e.preventDefault(); 
     let courses = [];
