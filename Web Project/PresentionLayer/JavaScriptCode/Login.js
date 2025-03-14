@@ -1,5 +1,6 @@
 const UsersInfo = "../../DataBaseCode/LoginDataBase.json";
 
+
 document.getElementById('LoginButton').addEventListener('click', checkLoginSuccess);
 
 async function checkLoginSuccess(e) {
@@ -13,7 +14,7 @@ async function checkLoginSuccess(e) {
             && u.password === passwordInput);
         if (user) {   
                 if (user.role === 'admin') {
-                    window.location.href = 'register_class.html'; 
+                    window.location.href = `Students/SearchDisplayCources.html?username=${encodeURIComponent(usernameInput)}`; 
             }
         }
  }

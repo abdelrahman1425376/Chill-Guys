@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "name": "Introduction to Programming",
+      "category": "Computer Science"
+    },
+    {
+      "id": 2,
+      "name": "Web Development Bootcamp",
+      "category": "Web Development"
+    },
+    {
+      "id": 3,
+      "name": "Data Structures and Algorithms",
+      "category": "Computer Science"
+    }
+   
+  ]
+  
