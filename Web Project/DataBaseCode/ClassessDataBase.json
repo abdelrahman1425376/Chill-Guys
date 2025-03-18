@@ -1,0 +1,28 @@
+[
+    {
+      "id": 1,
+      "course_name": "Introduction to Programming",
+      "category": "Computer Science",
+      "instructor": "John Doe",
+      "seats": 50,
+      "available_seats": 10
+    },
+    {
+      "id": 2,
+      "course_name": "Data Science Basics",
+      "category": "Data Science",
+      "instructor": "Jane Smith",
+      "seats": 40,
+      "available_seats": 5
+    },
+    {
+      "id": 3,
+      "course_name": "Digital Marketing",
+      "category": "Marketing",
+      "instructor": "Alice Johnson",
+      "seats": 30,
+      "available_seats": 8
+    }
+ 
+  ]
+  

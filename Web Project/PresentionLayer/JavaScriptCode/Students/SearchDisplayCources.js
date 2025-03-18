@@ -18,8 +18,6 @@ async function SearchCource(e) {
        displayCourses(courses);
     
  }
-
-
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -63,3 +61,7 @@ async function initalScreen() {
     loadCourses();
     assginUserName();
 }
+function navigateTo(page) {
+    window.location.href = `${page}?username=${encodeURIComponent(document.getElementById('UserName').textContent)}`;
+}
+
