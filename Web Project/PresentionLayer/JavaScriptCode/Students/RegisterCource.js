@@ -1,6 +1,8 @@
 let coursesInfo = "../../../DataBaseCode/ClassessDataBase.json";
+let RegisterationInfo="../../../DataBaseCode/RegestrationDataBase.json";
 window.onload = initalScreen;
-document.getElementById('submit').addEventListener('click', SearchCource);
+document.querySelector('.register-btn').addEventListener('click', registerClass);
+document.querySelector('#submit').addEventListener('click', SearchCource);
 
 async function SearchCource(e) {
     e.preventDefault(); 
@@ -30,11 +32,67 @@ function getQueryParam(param) {
         displayCourses(courses);
    
 }
- function registerClass(id)
+function getRegisterTable()
 {
-    document.getElementById('UserName').textContent="hiiiiiiiiii"
+    const storage = localStorage.getItem('register');
+    if (storage) {
+        return JSON.parse(storage);
+    } else {
+        return [];
+    }
+}
+async function getInfoClass(id)
+{
+    let courses = [];
+        const response = await fetch(coursesInfo);
+        courses = await response.json();
+        return courses.find(e=>e.id===id);
+}
+async function checkPassPrequsite(infoClass)
+{
+    let prerequisite = infoClass.prerequisite.split("/");
+    if(prerequisite[0]==="None"){
+        console.log("none")
+        return true;
+
+    }
+    let register=getRegisterTable();
+    for(let i=0;i<prerequisite.length;i++)
+    {
+        if(!register.find(e=>e.course_name===prerequisite[i]))
+        {
+            console.log("not pass")
+            return false;
+        }
+    }
+    console.log("pass")
+    return true;
+}
+ async function registerClass(id)
+{
+    let register=getRegisterTable();
+    let infoClass=await getInfoClass(id);
+    if(await checkPassPrequsite(infoClass)){
+    register.push(  register.push({
+             "id": id,
+             "course_name": "Digital Marketing",
+             "category": "Marketing",
+             "instructor": "Alice Johnson",
+             "seats": 30,
+             "available_seats": 8,
+             "prerequisite": "Basic Marketing Knowledge"
+         }))
+    localStorage.setItem('register', JSON.stringify(register));
+    alert("done")
+}
+else
+{
+    alert("hi")
+}
 }
 
+//console.log(infoClass.available_seats)
+   
 function displayCourses(courses) {
     let container = document.getElementById('courceElement');
     container.innerHTML = ''; 
@@ -49,9 +107,7 @@ function displayCourses(courses) {
                     <td>${course.available_seats}</td>
                     <td><button onclick="registerClass(${course.id})" class="register-btn">Register</button></td>
                 </tr>
- 
         `;
-        UserName
     });
 }
 
