@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div class="user-id">username</div>
+        <!-- <div id="UserName">username</div>
         <div class="nav-container">
             <nav>
                 <a href="SearchDisplayCources.html">Display Courses</a>
@@ -16,7 +16,17 @@
                 <a href="RegisterCource.html">Register Course</a>
             </nav>
             <a href="logout.html" class="logout-btn">Logout</a>
-        </div>
+        </div> -->
+        <nav>
+            <ul id="ServicesNavigation">
+                <li><a class="nav-link" id="UserName" href="#">UserName</a></li>
+                <li><a class="nav-link" href="#" onclick="navigateTo('SearchDisplayCources.html')">Display Courses</a></li>
+                <li><a class="nav-link" href="#" onclick="navigateTo('RegisterCource.html')">Register Course</a></li>
+                <li><a class="nav-link" href="#" onclick="navigateTo('viewCourse.html')">viewCourse</a></li>
+ 
+                <li><a class="nav-link" href="../Login.html">Log Out</a></li>
+            </ul>
+        </nav>
     </header>
     
 
@@ -46,5 +56,6 @@
             </ul>
         </section>
     </main>
+    <script src="../../JavaScriptCode/Students/viewCourse.js"></script>
 </body>
 </html>
