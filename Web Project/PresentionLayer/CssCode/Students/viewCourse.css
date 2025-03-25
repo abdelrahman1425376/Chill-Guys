@@ -1,5 +1,5 @@
 body {
-    font-family: 'Arial';
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: rgb(248, 249, 250);
@@ -11,14 +11,29 @@ header {
     color: white;
     padding: 15px 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid rgb(108, 117, 125);
+    justify-content: space-between; /* Space between username and navigation */
 }
 
-header h1 {
-    margin: 0;
-    font-size: 26px;
+.nav-container {
+    display: flex;
+    gap: 20px;
+    align-items: center; /* Align elements vertically */
+}
+
+.user-id {
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .logout-btn {
@@ -34,11 +49,9 @@ main {
     padding: 20px;
 }
 
-
-
 .completed {
     border-left: 5px solid green;
-    background-color:white;
+    background-color: white;
     padding: 1.3rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
@@ -70,7 +83,7 @@ main {
 
 ul {
     list-style-type: none;
-    padding: 0rem;
+    padding: 0;
 }
 
 ul li {
@@ -79,4 +92,3 @@ ul li {
     background-color: rgb(232, 232, 232);
     border-radius: 4px;
 }
-
