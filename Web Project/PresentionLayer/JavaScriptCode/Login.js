@@ -11,7 +11,14 @@ async function checkLoginSuccess(e) {
             && u.password === passwordInput);
         if (user) {   
                 if (user.role === 'admin') {
-                    window.location.href = `Students/SearchDisplayCources.html?username=${encodeURIComponent(usernameInput)}`; 
+                    window.location.href = `Students/screen5.html?username=${encodeURIComponent(usernameInput)}`;
+                   
             }
+            else {
+                window.location.href = `Students/SearchDisplayCources.html?username=${encodeURIComponent(usernameInput)}`;
+                
+        }
+
         }
  }
+
