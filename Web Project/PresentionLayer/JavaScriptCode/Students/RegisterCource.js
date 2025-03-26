@@ -1,6 +1,19 @@
+
 let coursesInfo = "../../../DataBaseCode/ClassessDataBase.json";
+let RegisterationInfo="../../../DataBaseCode/RegestrationDataBase.json";
 window.onload = initalScreen;
-document.getElementById('submit').addEventListener('click', SearchCource);
+document.querySelector('.register-btn').addEventListener('click', registerClass);
+document.querySelector('#submit').addEventListener('click', SearchCource);
+
+
+async function loadRegister()
+{
+   
+}
+
+
+
+
 
 async function SearchCource(e) {
     e.preventDefault(); 
@@ -24,17 +37,122 @@ function getQueryParam(param) {
   }  
   async function loadCourses() {
            
-        let courses = [];
+        const storage = localStorage.getItem('courses');
+    if (storage) {
+        displayCourses(JSON.parse(storage));
+    } else {
         const response = await fetch(coursesInfo);
-        courses = await response.json();
+        const courses = await response.json();
+        localStorage.setItem('courses', JSON.stringify(courses));
         displayCourses(courses);
+
+    }
    
 }
- function registerClass(id)
+function getRegisterTable()
 {
-    document.getElementById('UserName').textContent="hiiiiiiiiii"
+    const storage = localStorage.getItem('registerration');
+    if (!storage) {
+        localStorage.setItem('registerration', JSON.stringify([]));  
+    }
+}
+async function getInfoClass(id)
+{
+    let courses = [];
+        const response = await fetch(coursesInfo);
+        courses = await response.json();
+        return courses.find(e=>e.id===id);
+}
+async function checkPassPrequsite(infoClass)
+{
+    let prerequisite = infoClass.prerequisite.split("/");
+    if(prerequisite[0]==="None"){
+        console.log("none")
+        return true;
+
+    }
+    let register=getRegisterTable();
+    for(let i=0;i<prerequisite.length;i++)
+    {
+        if(!register.find(e=>e.course_name===prerequisite[i]))
+        {
+            console.log("not pass")
+            return false;
+        }
+    }
+    console.log("pass")
+    return true;
+}
+async function checkAvaliableSeats(infoClass)
+{
+    let prerequisite = infoClass.prerequisite.split("/");
+    if(prerequisite[0]==="None"){
+        console.log("none")
+        return true;
+
+    }
+    let register=getRegisterTable();
+    for(let i=0;i<prerequisite.length;i++)
+    {
+        if(!register.find(e=>e.course_name===prerequisite[i]))
+        {
+            console.log("not pass")
+            return false;
+        }
+    }
+    console.log("pass")
+    return true;
+}
+function failRegister()
+{
+    alert("fail register");
+
+}
+function modifyAvaliableSeats(id)
+{
+    let cources=JSON.parse(localStorage.getItem('courses'));
+    cources[id-1].available_seats-=1;
+    localStorage.setItem('courses', JSON.stringify(cources));
+    displayCourses(cources);
+}
+function addRegisterRecord(courceName,instructor,studentName)
+{
+    let registerration=JSON.parse(localStorage.getItem('registerration'));
+    registerration.push({
+        "id": registerration.length,
+        "course_name": courceName,
+        "instructor": instructor,
+        "name":studentName,
+        "grade":"",
+        "statusRegster":"3"
+      })
+    localStorage.setItem('registerration', JSON.stringify(registerration));
+}
+function SuccusesRegister(infoClass)
+{
+    modifyAvaliableSeats(infoClass.id);
+    console.log()
+    addRegisterRecord(infoClass.course_name,infoClass.instructor,document.getElementById('UserName').textContent)
+ alert("done")
+}
+async function checkNotRepeatSameCource(courceName)
+{
+    let registerration=JSON.parse(localStorage.getItem('registerration'));
+    return !(registerration.find(e=>e.name===document.getElementById('UserName').textContent &&e.course_name==courceName))
+}
+ async function registerClass(id)
+{
+    let infoClass=await getInfoClass(id);
+    if(await checkPassPrequsite(infoClass)&&infoClass.available_seats!==0&&await checkNotRepeatSameCource(infoClass.course_name)){
+        SuccusesRegister(infoClass);
+}
+else
+{
+    failRegister();
+}
 }
 
+   
 function displayCourses(courses) {
     let container = document.getElementById('courceElement');
     container.innerHTML = ''; 
@@ -49,9 +167,7 @@ function displayCourses(courses) {
                     <td>${course.available_seats}</td>
                     <td><button onclick="registerClass(${course.id})" class="register-btn">Register</button></td>
                 </tr>
- 
         `;
-        UserName
     });
 }
 
@@ -67,5 +183,6 @@ async function assginUserName()
 }
 async function initalScreen() {
     loadCourses();
+    getRegisterTable();
     assginUserName();
 }
