@@ -15,8 +15,10 @@
       "category": "Data Science",
       "instructor": "Jane Smith",
       "seats": 40,
-      "available_seats": 0,
-      "prerequisite": "Introduction to Programming/Digital Marketing"
+      "available_seats": 1,
+      "prerequisite": "None"
+
+
 
     },
     {

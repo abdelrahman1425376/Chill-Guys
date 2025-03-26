@@ -8,7 +8,7 @@ document.querySelector('#submit').addEventListener('click', SearchCource);
 
 async function loadRegister()
 {
-    localStorage.setItem('registerration', JSON.stringify([]));
+   
 }
 
 
@@ -51,11 +51,9 @@ function getQueryParam(param) {
 }
 function getRegisterTable()
 {
-    const storage = localStorage.getItem('register');
-    if (storage) {
-        return JSON.parse(storage);
-    } else {
-        return [];
+    const storage = localStorage.getItem('registerration');
+    if (!storage) {
+        localStorage.setItem('registerration', JSON.stringify([]));  
     }
 }
 async function getInfoClass(id)
@@ -125,14 +123,16 @@ function addRegisterRecord(courceName,instructor,studentName)
         "course_name": courceName,
         "instructor": instructor,
         "name":studentName,
-        "grade":""
+        "grade":"",
+        "statusRegster":"3"
       })
     localStorage.setItem('registerration', JSON.stringify(registerration));
 }
 function SuccusesRegister(infoClass)
 {
     modifyAvaliableSeats(infoClass.id);
-    addRegisterRecord(infoClass.courceName,infoClass.instructor,document.getElementById('UserName').textContent)
+    console.log()
+    addRegisterRecord(infoClass.course_name,infoClass.instructor,document.getElementById('UserName').textContent)
  alert("done")
 }
 async function checkNotRepeatSameCource(courceName)
@@ -143,7 +143,7 @@ async function checkNotRepeatSameCource(courceName)
  async function registerClass(id)
 {
     let infoClass=await getInfoClass(id);
-    if(await checkPassPrequsite(infoClass)&&infoClass.available_seats!==0&&await checkNotRepeatSameCource(infoClass.courceName)){
+    if(await checkPassPrequsite(infoClass)&&infoClass.available_seats!==0&&await checkNotRepeatSameCource(infoClass.course_name)){
         SuccusesRegister(infoClass);
 }
 else
@@ -183,6 +183,6 @@ async function assginUserName()
 }
 async function initalScreen() {
     loadCourses();
-    loadRegister();
+    getRegisterTable();
     assginUserName();
 }
