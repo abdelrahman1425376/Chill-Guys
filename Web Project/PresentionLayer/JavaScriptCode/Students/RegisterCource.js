@@ -6,10 +6,6 @@ document.querySelector('.register-btn').addEventListener('click', registerClass)
 document.querySelector('#submit').addEventListener('click', SearchCource);
 
 
-async function loadRegister()
-{
-   
-}
 
 
 

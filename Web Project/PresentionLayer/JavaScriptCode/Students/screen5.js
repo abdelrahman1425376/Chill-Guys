@@ -46,21 +46,23 @@ function displayCourses(courses,query) {
     let container = document.querySelector(query);
     container.innerHTML="";
     courses.forEach(course => { 
-        if(query!='.open'){
+        if(query =='.open'){
+            container.innerHTML += `
+         
+            <h3>${course.course_name}</h3>
+            <p>status: open for regestration</p>
+            <button class="cancel">cancel</button>
+        `;
+        }  
+        else if(query =='.pending'){
             container.innerHTML += `
             <h3>${course.course_name}</h3>
             <p>status: pending validation</p>
             <button class="validate" onclick="validatation(${course.id})">validate</button>
             <button class="cancel">cancel</button>
         `;
-        }  
-        else{
-            container.innerHTML += `
-         
-            <h3>${course.course_name}</h3>
-            <p>status: pending validation</p>
-            <button class="cancel">cancel</button>
-        `;
+
+        
         }
         
     });

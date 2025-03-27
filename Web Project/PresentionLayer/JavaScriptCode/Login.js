@@ -14,10 +14,13 @@ async function checkLoginSuccess(e) {
                     window.location.href = `Students/screen5.html?username=${encodeURIComponent(usernameInput)}`;
                    
             }
-            else {
+            else if (user.role === 'student') {
                 window.location.href = `Students/SearchDisplayCources.html?username=${encodeURIComponent(usernameInput)}`;
                 
         }
+            else{
+                window.location.href = `Students/screen6.html?username=${encodeURIComponent(usernameInput)}`;
+            }
 
         }
  }

@@ -11,7 +11,7 @@
     },
     {
       "username": "teacher_user",
-      "password": "teacher123",
+      "password": "123",
       "role": "teacher"
     }
   ]
