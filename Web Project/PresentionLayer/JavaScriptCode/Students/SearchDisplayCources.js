@@ -1,15 +1,12 @@
-let coursesInfo = "../../../DataBaseCode/CourceDataBase.json";
+let coursesInfo = "../../../DataBaseCode/ClassessDataBase.json";
 window.onload = initalScreen;
 document.getElementById('submit').addEventListener('click', SearchCource);
 
 async function SearchCource(e) {
-    e.preventDefault(); 
-    let courses = [];
-    const response = await fetch(coursesInfo);
-    courses = await response.json();
+    const courses=JSON.parse(localStorage.getItem("courses"));
     const type = document.getElementById('TypeSearch').value;
     if(type==="Name")
-        courses = courses.filter(u =>  u.name === document.getElementById('search').value  );
+        courses = courses.filter(u =>  u.course_name === document.getElementById('search').value  );
     else
        courses = courses.filter(u =>   u.category === document.getElementById('search').value );
     if(courses.length===0)
@@ -24,13 +21,8 @@ function getQueryParam(param) {
   }  
 async function loadCourses() {
            
-        let courses = [];
-        const response = await fetch(coursesInfo);
-        
-       
-        
-        courses = await response.json();
-        displayCourses(courses);
+    const courses=JSON.parse(localStorage.getItem("courses"));
+    displayCourses(courses);
    
 }
 
@@ -43,7 +35,7 @@ function displayCourses(courses) {
         container.innerHTML += `
          <tr>
                     <td>${course.id}</td>
-                    <td>${course.name}</td>
+                    <td>${course.course_name}</td>
                     <td>${course.category}</td> 
                 </tr>
             

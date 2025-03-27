@@ -6,7 +6,8 @@
       "instructor": "John Doe",
       "seats": 50,
       "available_seats": 10,
-      "prerequisite": "None"
+      "prerequisite": "None",
+      "validation":"None"
 
     },
     {
@@ -16,8 +17,8 @@
       "instructor": "Jane Smith",
       "seats": 40,
       "available_seats": 1,
-      "prerequisite": "None"
-
+      "prerequisite": "None",
+      "validation":"None"
 
 
     },
@@ -28,7 +29,8 @@
       "instructor": "Alice Johnson",
       "seats": 30,
       "available_seats": 8,
-      "prerequisite": "None"
+      "prerequisite": "None",
+      "validation":"None"
 
     }
  

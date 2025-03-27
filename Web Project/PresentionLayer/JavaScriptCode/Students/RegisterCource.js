@@ -16,10 +16,7 @@ async function loadRegister()
 
 
 async function SearchCource(e) {
-    e.preventDefault(); 
-    let courses = [];
-    const response = await fetch(coursesInfo);
-    courses = await response.json();
+    let courses = localStorage.getItem('courses');
     const type = document.getElementById('TypeSearch').value;
     if(type==="Name")
         courses = courses.filter(u =>  u.course_name === document.getElementById('search').value  );
@@ -37,16 +34,10 @@ function getQueryParam(param) {
   }  
   async function loadCourses() {
            
-        const storage = localStorage.getItem('courses');
-    if (storage) {
-        displayCourses(JSON.parse(storage));
-    } else {
-        const response = await fetch(coursesInfo);
-        const courses = await response.json();
-        localStorage.setItem('courses', JSON.stringify(courses));
-        displayCourses(courses);
-
-    }
+    const storage = localStorage.getItem('courses');
+    
+    displayCourses(JSON.parse(storage));
+    
    
 }
 function getRegisterTable()
