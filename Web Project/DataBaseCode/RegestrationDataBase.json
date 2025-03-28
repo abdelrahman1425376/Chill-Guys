@@ -3,21 +3,22 @@
       "id": 1,
       "course_name": "Introduction to Programming",
       "instructor": "John Doe",
-      "name":"Amer",
+      "name":"student_user",
       "grade":"A"
+      
     },
     {
       "id": 2,
       "course_name": "Data Science Basics",
       "instructor": "Jane Smith",
-      "name":"Amer",
+      "name":"student_user",
       "grade":"A"
     },
     {
       "id": 3,
       "course_name": "Digital Marketing",
       "instructor": "Alice Johnson",
-      "name":"Amer",
+      "name":"student_user",
       "grade":""
     }
  

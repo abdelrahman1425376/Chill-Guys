@@ -12,7 +12,7 @@ document.querySelector('#submit').addEventListener('click', SearchCource);
 
 
 async function SearchCource(e) {
-    let courses = localStorage.getItem('courses');
+    let courses = localStorage.getItem('classes');
     const type = document.getElementById('TypeSearch').value;
     if(type==="Name")
         courses = courses.filter(u =>  u.course_name === document.getElementById('search').value  );
@@ -30,7 +30,7 @@ function getQueryParam(param) {
   }  
   async function loadCourses() {
            
-    const storage = localStorage.getItem('courses');
+    const storage = localStorage.getItem('classes');
     
     displayCourses(JSON.parse(storage));
     
@@ -97,9 +97,9 @@ function failRegister()
 }
 function modifyAvaliableSeats(id)
 {
-    let cources=JSON.parse(localStorage.getItem('courses'));
+    let cources=JSON.parse(localStorage.getItem('classes'));
     cources[id-1].available_seats-=1;
-    localStorage.setItem('courses', JSON.stringify(cources));
+    localStorage.setItem('classes', JSON.stringify(cources));
     displayCourses(cources);
 }
 function addRegisterRecord(courceName,instructor,studentName)
@@ -111,7 +111,8 @@ function addRegisterRecord(courceName,instructor,studentName)
         "instructor": instructor,
         "name":studentName,
         "grade":"",
-        "statusRegster":"3"
+        "statusRegster":"3",
+        "status":"pending"
       })
     localStorage.setItem('registerration', JSON.stringify(registerration));
 }

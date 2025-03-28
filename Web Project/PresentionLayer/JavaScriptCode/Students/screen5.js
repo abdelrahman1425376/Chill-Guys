@@ -1,5 +1,5 @@
 let coursesInfo = "../../../DataBaseCode/ClassessDataBase.json";
-let courses = localStorage.courses ? JSON.parse(localStorage.courses) : [];
+let courses = localStorage.classes ? JSON.parse(localStorage.classes) : [];
 window.onload = initalScreen;
 function navigateTo(page) {
     window.location.href = `${page}?username=${encodeURIComponent(document.getElementById('UserName').textContent)}`;
@@ -21,7 +21,8 @@ async function loadCourses() {
 if (storage) {
     const Precourses=JSON.parse(storage);
     displayCourses(Precourses.filter(e=>e.validation=="None"),'.pending');
-    displayCourses(courses,'.open');
+    displayCourses(Precourses.filter(e=>e.validation=="valid"),'.open');
+    displayCourses(Precourses.filter(e=>e.validation=="Unvalid"),'.in-progress');
 } else {
     const response = await fetch(coursesInfo);
     const Precourses = await response.json();
@@ -36,10 +37,18 @@ function validatation(id){
     const course=Precourses.find(e=>e.id==id);
     course.validation="valid";
     localStorage.setItem('Precourses',JSON.stringify(Precourses))
-    courses.push(course);
-    localStorage.setItem('courses',JSON.stringify(courses))
-    displayCourses(Precourses.filter(e=>e.validation=="None"),'.pending');
-    displayCourses(courses,'.open');
+    courses=Precourses.filter(course=>course.validation!="Unvalid");
+    localStorage.setItem('classes',JSON.stringify(courses))
+    loadCourses()
+}
+function cancel(id){
+    const Precourses = JSON.parse(localStorage.getItem('Precourses'));
+    const course=Precourses.find(e=>e.id==id);
+    course.validation="Unvalid";
+    localStorage.setItem('Precourses',JSON.stringify(Precourses))
+    courses=Precourses.filter(course=>course.validation=="valid");
+    localStorage.setItem('classes',JSON.stringify(courses))
+    loadCourses()
 }
 function displayCourses(courses,query) {
     
@@ -50,19 +59,28 @@ function displayCourses(courses,query) {
             container.innerHTML += `
          
             <h3>${course.course_name}</h3>
+            <p>Number of students: ${course.seats-course.available_seats}</p>
             <p>status: open for regestration</p>
-            <button class="cancel">cancel</button>
+            
         `;
         }  
         else if(query =='.pending'){
             container.innerHTML += `
             <h3>${course.course_name}</h3>
+            <p>Number of students: ${course.seats-course.available_seats}</p>
             <p>status: pending validation</p>
             <button class="validate" onclick="validatation(${course.id})">validate</button>
-            <button class="cancel">cancel</button>
+            <button class="cancel" onclick="cancel(${course.id})">cancel</button>
         `;
 
         
+        }
+        else if(query =='.in-progress'){
+            container.innerHTML += `
+            <h3>${course.course_name}</h3>
+            <p>Number of students: ${course.seats-course.available_seats}</p>
+            <p>status: pending validation</p>
+        `;
         }
         
     });
