@@ -112,7 +112,7 @@ function addRegisterRecord(courceName,instructor,studentName)
         "name":studentName,
         "grade":"",
         "statusRegster":"3",
-        "status":"pending"
+        
       })
     localStorage.setItem('registerration', JSON.stringify(registerration));
 }

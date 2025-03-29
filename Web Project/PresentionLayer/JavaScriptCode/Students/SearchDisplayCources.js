@@ -3,7 +3,7 @@ window.onload = initalScreen;
 document.getElementById('submit').addEventListener('click', SearchCource);
 
 async function SearchCource(e) {
-    const courses=JSON.parse(localStorage.getItem("courses"));
+    const courses=JSON.parse(localStorage.getItem("f"));
     const type = document.getElementById('TypeSearch').value;
     if(type==="Name")
         courses = courses.filter(u =>  u.name === document.getElementById('search').value  );
@@ -30,6 +30,7 @@ async function loadCourses() {
         
         const response = await fetch(coursesInfo);
         courses = await response.json();
+        localStorage.setItem("courses",JSON.stringify(courses))
     }
    
     

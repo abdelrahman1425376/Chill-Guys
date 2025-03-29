@@ -38,6 +38,7 @@ function validatation(id){
     course.validation="valid";
     localStorage.setItem('Precourses',JSON.stringify(Precourses))
     courses=Precourses.filter(course=>course.validation!="Unvalid");
+    courses=courses.sort(((a, b) => a.category.localeCompare(b.category)))
     localStorage.setItem('classes',JSON.stringify(courses))
     loadCourses()
 }
@@ -46,12 +47,13 @@ function cancel(id){
     const course=Precourses.find(e=>e.id==id);
     course.validation="Unvalid";
     localStorage.setItem('Precourses',JSON.stringify(Precourses))
-    courses=Precourses.filter(course=>course.validation=="valid");
+    courses=Precourses.filter(course=>course.validation!="Unvalid");
+    courses=courses.sort(((a, b) => a.category.localeCompare(b.category)))
     localStorage.setItem('classes',JSON.stringify(courses))
     loadCourses()
 }
 function displayCourses(courses,query) {
-    
+    courses=courses.sort(((a, b) => a.category.localeCompare(b.category)))
     let container = document.querySelector(query);
     container.innerHTML="";
     courses.forEach(course => { 
@@ -59,7 +61,10 @@ function displayCourses(courses,query) {
             container.innerHTML += `
          
             <h3>${course.course_name}</h3>
-            <p>Number of students: ${course.seats-course.available_seats}</p>
+            <p>Category: ${course.category}</p>
+            <p>CRN: ${course.id}</p>
+            <p>Instructor: ${course.instructor}</p>
+            <p>Number of students: ${course.seats-course.available_seats} / ${course.seats}</p>
             <p>status: open for regestration</p>
             
         `;
@@ -67,7 +72,9 @@ function displayCourses(courses,query) {
         else if(query =='.pending'){
             container.innerHTML += `
             <h3>${course.course_name}</h3>
-            <p>Number of students: ${course.seats-course.available_seats}</p>
+            <p>Category: ${course.category}</p>
+            <p>CRN: ${course.id}</p>
+            <p>Number of students: ${course.seats-course.available_seats} / ${course.seats}</p>
             <p>status: pending validation</p>
             <button class="validate" onclick="validatation(${course.id})">validate</button>
             <button class="cancel" onclick="cancel(${course.id})">cancel</button>
@@ -78,7 +85,10 @@ function displayCourses(courses,query) {
         else if(query =='.in-progress'){
             container.innerHTML += `
             <h3>${course.course_name}</h3>
-            <p>Number of students: ${course.seats-course.available_seats}</p>
+            <p>Category: ${course.category}</p>
+            <p>CRN: ${course.id}</p>
+            <p>Category: ${course.category}</p>
+            <p>Number of students: ${course.seats-course.available_seats} / ${course.seats}</p>
             <p>status: pending validation</p>
         `;
         }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Class</title>
+    <link rel="stylesheet" href="../../CssCode/Students/create_course.css">
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <a class="nav-link" id="UserName" href="#">UserName</a>
+        <a class="nav-link" href="../Login.html">Log Out</a>
+    </nav>
+</header>
+    
+    <div class="form-container">
+        <h2>Create New Cource</h2>
+        <form id="classForm">
+            <input type="text" id="className" placeholder="Cource Name" required>
+            <input type="text" id="Category" placeholder="Category" required>
+            <input type="text" id="prerequisite" placeholder="prerequisite">
+            
+        </form>
+        <button onclick="addclass()">Create Class</button>
+        <a href="#" class="button" onclick="navigateTo('screen5.html')">Back to Courses</a>
+    </div>
+
+    <script src="../../JavaScriptCode/Students/createClasses.js"></script>
+</body>
+</html>

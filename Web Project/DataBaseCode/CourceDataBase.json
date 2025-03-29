@@ -2,17 +2,20 @@
     {
       "id": 1,
       "name": "Introduction to Programming",
-      "category": "Computer Science"
+      "category": "Computer Science",
+      "prerequisite": "None"
     },
     {
       "id": 2,
       "name": "Data Science Basics",
-      "category": "Web Development"
+      "category": "Data Science",
+      "prerequisite": "Introduction to Programming"
     },
     {
       "id": 3,
       "name": "Digital Marketing",
-      "category": "Computer Science"
+      "category": "Marketing",
+      "prerequisite": "None"
     }
    
   ]

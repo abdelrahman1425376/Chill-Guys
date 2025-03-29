@@ -10,6 +10,7 @@
       "validation":"None"
 
     },
+
     {
       "id": 2,
       "course_name": "Data Science Basics",
@@ -29,6 +30,17 @@
       "instructor": "Alice Johnson",
       "seats": 30,
       "available_seats": 8,
+      "prerequisite": "None",
+      "validation":"None"
+
+    },
+    {
+      "id": 4,
+      "course_name": "Computer",
+      "category": "Computer Science",
+      "instructor": "John Doe",
+      "seats": 50,
+      "available_seats": 10,
       "prerequisite": "None",
       "validation":"None"
 
