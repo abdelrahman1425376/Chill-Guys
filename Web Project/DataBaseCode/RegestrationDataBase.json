@@ -4,7 +4,8 @@
       "course_name": "Introduction to Programming",
       "instructor": "John Doe",
       "name":"student_user",
-      "grade":"A"
+      "grade":"A",
+      "status":"completed"
       
     },
     {
@@ -12,14 +13,45 @@
       "course_name": "Data Science Basics",
       "instructor": "Jane Smith",
       "name":"student_user",
-      "grade":"A"
+      "grade":"A",
+      "status":"completed"
+      
+    },
+    {
+      "id": 5,
+      "course_name": "Data Science Basics",
+      "instructor": "teacher_user",
+      "name":"student_user",
+      "grade":"A",
+      "status":"InProgress"
+      
     },
     {
       "id": 3,
       "course_name": "Digital Marketing",
-      "instructor": "Alice Johnson",
+      "instructor": "teacher_user",
       "name":"student_user",
-      "grade":""
+      "grade":"",
+      "status":"InProgress"
+
+    },
+    {
+      "id": 3,
+      "course_name": "Digital Marketing",
+      "instructor": "teacher_user",
+      "name":"student_user1",
+      "grade":"",
+      "status":"InProgress"
+
+    },
+    {
+      "id": 3,
+      "course_name": "Digital Marketing",
+      "instructor": "teacher_user",
+      "name":"student_user2",
+      "grade":"",
+      "status":"InProgress"
+
     }
  
   ]

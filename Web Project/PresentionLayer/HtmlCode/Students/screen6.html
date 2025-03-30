@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="../../CssCode/Students/screen6.css"></head>
+    <link rel="stylesheet" href="../../CssCode/Students/screen5.css">
 </head>
 <body>
     <div class="container">
@@ -12,58 +12,22 @@
             <nav>
                 <ul id="ServicesNavigation">
                     <li><a class="nav-link" id="UserName" href="#">UserName</a></li>
+                    <li><a class="nav-link" href="#" onclick="navigateTo('submitGrades.html')">Submit Grade</a></li>
                     <li><a class="nav-link" href="../Login.html">Log Out</a></li>
                 </ul>
             </nav>
         </header>
-
-        <h1>Instructor Grade Submission</h1>
+        </div>
+        <h1>instructor classes</h1>
         
-        <div class="class-list">
-            <label for="class">Classes</label>
-                <select id="Classes" required>
-                    <option value="" disabled selected></option> </option>
-                    <option value="">Calculas II</option>
-                    <option value="">Calculas I</option>
-                    <option value="">Circuits</option>
-                    <option value="">Physics I</option>
-                    <option value="">Web Development</option>
-                    <option value="">Operating Systems</option>
-                </select>
+        <div class="course-list">
+            <h2>Classes</h2>
+            <div class="pending">
+                
+            </div>
         </div>
         
-        <div class="names-grades">
-            <h2>Submit Grades</h2>
-            <form>
-                <label for="name">Student names</label>
-                <select id="grade" required>
-                    <option value="" disabled selected></option> </option>
-                    <option value="">Ahmed khaled</option>
-                    <option value="">Mohammed Saqr</option>
-                    <option value="">Ismail Kanabawi</option>
-                    <option value="">Ahmed Sombol</option>
-                    <option value="">Khaled Medhat</option>
-                    <option value="">Abdulaziz Saleh</option>
-                    <option value="">Saleh Mujahed</option>
-                    <option value="">Sameh Khaled</option>
-                </select>
-                
-                <label for="grade">Grade</label>
-                <select id="grade" required>
-                    <option value="" disabled selected></option> </option>
-                    <option value="A">A</option>
-                    <option value="B+">B+</option>
-                    <option value="B">B</option>
-                    <option value="C+">C+</option>
-                    <option value="C">C</option>
-                    <option value="D+">D+</option>
-                    <option value="D">D</option>
-                    <option value="F">F</option>
-                </select>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-    </div>
+        
     <script src="../../JavaScriptCode/Students/screen6.js"></script>
 </body>
 </html>

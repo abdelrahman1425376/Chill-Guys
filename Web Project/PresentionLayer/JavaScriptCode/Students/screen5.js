@@ -16,16 +16,27 @@ async function assginUserName()
     welcomeMessage.textContent = ` ${username}`;  
 }
 async function loadCourses() {
-           
-    const storage = localStorage.getItem('Precourses');
+    let name = document.getElementById('UserName').textContent;
+    console.log(name);       
+const storage = localStorage.getItem('Precourses');
 if (storage) {
     const Precourses=JSON.parse(storage);
+    if(!courses.length){
+        courses=Precourses;
+        localStorage.setItem('classes', JSON.stringify(courses));
+    }
+    
     displayCourses(Precourses.filter(e=>e.validation=="None"),'.pending');
     displayCourses(Precourses.filter(e=>e.validation=="valid"),'.open');
     displayCourses(Precourses.filter(e=>e.validation=="Unvalid"),'.in-progress');
 } else {
     const response = await fetch(coursesInfo);
     const Precourses = await response.json();
+    if(!courses.length){
+        courses=Precourses;
+        localStorage.setItem('classes', JSON.stringify(courses));
+    }
+    
     localStorage.setItem('Precourses', JSON.stringify(Precourses));
     displayCourses(Precourses.filter(e=>e.validation=="None"),'.pending');
 
@@ -89,13 +100,14 @@ function displayCourses(courses,query) {
             <p>CRN: ${course.id}</p>
             <p>Category: ${course.category}</p>
             <p>Number of students: ${course.seats-course.available_seats} / ${course.seats}</p>
-            <p>status: pending validation</p>
+            <p>status: cancelled</p>
         `;
         }
         
     });
 }
 async function initalScreen() {
-    loadCourses();
     assginUserName();
+    loadCourses();
+    
 }

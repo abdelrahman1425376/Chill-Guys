@@ -20,12 +20,14 @@ async function loadCourses() {
 }
 
 async function addclass(e) {
+    const Precourses = JSON.parse(localStorage.getItem('Precourses'));
+    const classes = JSON.parse(localStorage.getItem('classes'));
     const className = document.getElementById('className').value;
     const Category = document.getElementById('Category').value;
     const instructor = document.getElementById('instructor').value;
     const seats = document.getElementById('seats').value;
     let prerequisite ="None";
-    const id=Date.now()
+    const id= Precourses.length+1
     const newclass ={
         "id": id,
         "course_name": className,
@@ -49,10 +51,12 @@ async function addclass(e) {
         courses = await response.json();
         localStorage.setItem("courses",JSON.stringify(courses))
     }
-    const Precourses = JSON.parse(localStorage.getItem('Precourses'));
+    
     if(course=courses.find(course=>course.name==newclass.course_name && course.category == newclass.category)){
         newclass.prerequisite=course.prerequisite;
         Precourses.push(newclass);
+        classes.push(newclass);
+        localStorage.setItem('classes', JSON.stringify(classes));
         localStorage.setItem('Precourses', JSON.stringify(Precourses));
         window.alert("Done")
         

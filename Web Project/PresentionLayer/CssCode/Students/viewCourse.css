@@ -12,13 +12,13 @@ header {
     padding: 15px 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space between username and navigation */
+    justify-content: space-between;
 }
 
 .nav-container {
     display: flex;
     gap: 20px;
-    align-items: center; /* Align elements vertically */
+    align-items: center; 
 }
 
 .user-id {
@@ -86,9 +86,28 @@ ul {
     padding: 0;
 }
 
-ul li {
+#completed li,#InProgress li,#Pending li{
     padding: 12px;
     margin-bottom: 8px;
     background-color: rgb(232, 232, 232);
     border-radius: 4px;
 }
+#ServicesNavigation {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
+    align-items: center;
+}
+
+#ServicesNavigation li {
+    margin: 0 10px; 
+}
+
+#ServicesNavigation a {
+    display: block;
+    
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+

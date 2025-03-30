@@ -18,7 +18,7 @@
       "instructor": "Jane Smith",
       "seats": 40,
       "available_seats": 1,
-      "prerequisite": "None",
+      "prerequisite": "Introduction to Programming",
       "validation":"None"
 
 

@@ -1,34 +1,63 @@
-// window.onload = initalScreen;
-// function navigateTo(page) {
-//     window.location.href = `${page}?username=${encodeURIComponent(document.getElementById('UserName').textContent)}`;
-// }
-// function getQueryParam(param) {
-//     const urlParams = new URLSearchParams(window.location.search);
-//     return urlParams.get(param);
-//   } 
+let coursesInfo = "../../../DataBaseCode/CourceDataBase.json";
+window.onload = initalScreen;
+function navigateTo(page) {
+    window.location.href = `${page}?username=${encodeURIComponent(document.getElementById('UserName').textContent)}`;
+}
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  } 
 
-// async function assginUserName()
-// {
-//     const username = getQueryParam('username');
-//     const welcomeMessage = document.getElementById('UserName');
-//     welcomeMessage.textContent = ` ${username}`;  
-// }
-// function addclass(e) {
-//     const className = document.getElementById('className').value;
-//     const course = document.getElementById('course').value;
-//     const instructor = document.getElementById('instructor').value;
-//     const seats = document.getElementById('seats').value;
-//     const available_seats = document.getElementById('available_seats').value;
-//     const prerequisite = document.getElementById('prerequisite').value;
-//     const id=Date.now()
-//     const newclass = { id,className, course, instructor, seats,available_seats,prerequisite };
-//     const Precourses = JSON.parse(localStorage.getItem('Precourses'));
-//     Precourses.push(newclass);
-//     localStorage.setItem('Precourses', JSON.stringify(Precourses));
-    
+async function assginUserName()
+{
+    const username = getQueryParam('username');
+    const welcomeMessage = document.getElementById('UserName');
+    welcomeMessage.textContent = ` ${username}`;  
+}
+async function addcourse(e) {
+    let courses = [];
+        const storage=localStorage.getItem("courses");
+        if(storage){
+            courses=JSON.parse(localStorage.getItem("courses"))
+        }
+        
+        else{
+            
+            const response = await fetch(coursesInfo);
+            courses = await response.json();
+            localStorage.setItem("courses",JSON.stringify(courses))
+        }
+        
+        
+        const courseName = document.getElementById('coursesName').value;
+        const Category = document.getElementById('Category').value;
+        const prerequisite = document.getElementById('prerequisite').value?document.getElementById('prerequisite').value:"None";
+        const id= courses.length+1
+        const newcourses ={
+            "id": id,
+            "name": courseName,
+            "category": Category,
+            "prerequisite": prerequisite,
+      
+          }
+        
+        if(courses.find(course=>course.name==newcourses.course_name && course.category == newcourses.category)){
+            window.alert("This cource exist in courses List")
+            
+            
+        }
+        
+        else{
+            courses.push(newcourses);
+            localStorage.setItem('courses', JSON.stringify(courses));
+            window.alert("Done")
+        }
+        
+      
+    } 
   
-// } 
-// async function initalScreen() {
-//     loadCourses();
-//     assginUserName();
-// }
+
+async function initalScreen() {
+
+    assginUserName();
+}
