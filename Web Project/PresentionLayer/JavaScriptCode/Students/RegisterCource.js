@@ -186,7 +186,7 @@ async function assginUserName()
 {
     const username = getQueryParam('username');
     const welcomeMessage = document.getElementById('UserName');
-    welcomeMessage.textContent = ` ${username.trim()}`;  
+    welcomeMessage.textContent = `${username.trim()}`;  
 }
 async function initalScreen() {
     let register=localStorage.getItem("registerration");

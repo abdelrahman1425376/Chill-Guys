@@ -8,15 +8,7 @@
       "status":"completed"
       
     },
-    {
-      "id": 2,
-      "course_name": "Data Science Basics",
-      "instructor": "Jane Smith",
-      "name":"student_user",
-      "grade":"A",
-      "status":"completed"
-      
-    },
+
     {
       "id": 5,
       "course_name": "Data Science Basics",

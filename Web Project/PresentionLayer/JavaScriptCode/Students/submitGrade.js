@@ -31,7 +31,7 @@ function SubmitGrade(){
         window.alert("Done")
     }
     else{
-        window.alert("CRN Does Exist")
+        window.alert("The Student Does Not Exist")
     }
     
 
