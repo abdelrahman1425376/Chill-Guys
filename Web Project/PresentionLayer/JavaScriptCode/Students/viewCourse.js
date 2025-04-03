@@ -29,9 +29,9 @@ async function loadCompletedCourses() {
            
     const storage = localStorage.getItem('registerration');
 if (storage) {
-    displayCourses(JSON.parse(storage).filter(e=>e.statusRegster==1),"completed");
-    displayCourses(JSON.parse(storage).filter(e=>e.statusRegster==2),"InProgress");
-    displayCourses(JSON.parse(storage).filter(e=>e.statusRegster==3),"Pending");
+    displayCourses(JSON.parse(storage).filter(e=>e.status=="completed"),"completed");
+    displayCourses(JSON.parse(storage).filter(e=>e.status=="InProgress"),"InProgress");
+    displayCourses(JSON.parse(storage).filter(e=>e.status=="Pending"),"Pending");
 
 } 
 }

@@ -16,6 +16,12 @@
       "name": "Digital Marketing",
       "category": "Marketing",
       "prerequisite": "None"
+    },
+    {
+      "id": 4,
+      "name": "Computer",
+      "category": "Computer Science",
+      "prerequisite": "None"
     }
    
   ]

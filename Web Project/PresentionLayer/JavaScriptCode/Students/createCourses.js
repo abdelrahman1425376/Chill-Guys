@@ -40,11 +40,10 @@ async function addcourse(e) {
             "prerequisite": prerequisite,
       
           }
-          
-        if(courses.find(course=>course.name===newcourses.name && course.category === newcourses.category)){      
+
+        if(courses.find(course=>course.name==newcourses.course_name && course.category == newcourses.category)){
             window.alert("This cource exist in courses List")
-            
-            
+
         }
         
         else{

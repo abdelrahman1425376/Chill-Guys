@@ -10,6 +10,16 @@
       "role": "student"
     },
     {
+      "username": "student_user1",
+      "password": "123",
+      "role": "student"
+    },
+    {
+      "username": "student_user2",
+      "password": "123",
+      "role": "student"
+    },
+    {
       "username": "teacher_user",
       "password": "123",
       "role": "teacher"
