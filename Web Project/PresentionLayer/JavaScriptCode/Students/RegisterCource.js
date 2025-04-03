@@ -1,8 +1,12 @@
-
 let coursesInfo = "../../../DataBaseCode/ClassessDataBase.json";
 let RegisterationInfo="../../../DataBaseCode/RegestrationDataBase.json";
+
+
+
+
+
+
 window.onload = initalScreen;
-document.querySelector('.register-btn').addEventListener('click', registerClass);
 document.querySelector('#submit').addEventListener('click', SearchCource);
 
 
@@ -11,19 +15,27 @@ document.querySelector('#submit').addEventListener('click', SearchCource);
 
 
 
-async function SearchCource(e) {
-    let courses = localStorage.getItem('classes');
+function SearchCource(e) {
+    e.preventDefault(); 
+
+    let courses = JSON.parse(localStorage.getItem('classes')) || [];
     const type = document.getElementById('TypeSearch').value;
-    if(type==="Name")
-        courses = courses.filter(u =>  u.course_name === document.getElementById('search').value  );
-    else
-       courses = courses.filter(u =>   u.category === document.getElementById('search').value );
-    if(courses.length===0)
+    const searchValue = document.getElementById('search').value.trim().toLowerCase();
+
+    let filteredCourses = [];
+
+    if (type === "Name") {
+        filteredCourses = courses.filter(course => course.course_name.toLowerCase().includes(searchValue));
+    } else {
+        filteredCourses = courses.filter(course => course.category.toLowerCase().includes(searchValue));
+    }
+
+    if (filteredCourses.length === 0) {
         loadCourses();
-    else
-       displayCourses(courses);
-    
- }
+    } else {
+        displayCourses(filteredCourses);
+    }
+}
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -42,13 +54,14 @@ function getRegisterTable()
     if (!storage) {
         localStorage.setItem('registerration', JSON.stringify([]));  
     }
+    const registerration = localStorage.getItem('registerration');
+    return registerration;
 }
 async function getInfoClass(id)
 {
-    let courses = [];
-        const response = await fetch(coursesInfo);
-        courses = await response.json();
-        return courses.find(e=>e.id===id);
+    const courses = JSON.parse(localStorage.getItem('classes'));
+    
+    return courses.find(e=>e.id==id);
 }
 async function checkPassPrequsite(infoClass)
 {
@@ -58,30 +71,34 @@ async function checkPassPrequsite(infoClass)
         return true;
 
     }
-    let register=getRegisterTable();
+    let register=JSON.parse(localStorage.getItem('registerration'));
+    let name = document.getElementById('UserName').textContent;
     for(let i=0;i<prerequisite.length;i++)
     {
-        if(!register.find(e=>e.course_name===prerequisite[i]))
-        {
-            console.log("not pass")
-            return false;
+        if(register.find(e=>e.course_name==prerequisite[i] && e.name == name && e.status == "completed"))
+        { 
+            console.log("pass")
+            return true;
+            
         }
     }
-    console.log("pass")
-    return true;
+    console.log("not pass")
+    return false;
+    
 }
 async function checkAvaliableSeats(infoClass)
 {
     let prerequisite = infoClass.prerequisite.split("/");
-    if(prerequisite[0]==="None"){
+    if(prerequisite[0]=="None"){
         console.log("none")
         return true;
 
     }
     let register=getRegisterTable();
+    let name = document.getElementById('UserName').textContent;
     for(let i=0;i<prerequisite.length;i++)
     {
-        if(!register.find(e=>e.course_name===prerequisite[i]))
+        if(!register.find(e=>e.course_name==prerequisite[i]&& e.name == name))
         {
             console.log("not pass")
             return false;
@@ -98,29 +115,35 @@ function failRegister()
 function modifyAvaliableSeats(id)
 {
     let cources=JSON.parse(localStorage.getItem('classes'));
-    cources[id-1].available_seats-=1;
+    let Precources=JSON.parse(localStorage.getItem('Precourses'));
+    let Precource=Precources.find(cource=>cource.id == id && cource.validation!="Unvalid")
+    cource=cources.find(cource=>cource.id==id)
+    cource.available_seats-=1;
+    Precource.available_seats-=1;
     localStorage.setItem('classes', JSON.stringify(cources));
+    localStorage.setItem('Precourses', JSON.stringify(Precources));
     displayCourses(cources);
 }
-function addRegisterRecord(courceName,instructor,studentName)
+function addRegisterRecord(courceName,instructor,studentName,id)
 {
     let registerration=JSON.parse(localStorage.getItem('registerration'));
     registerration.push({
-        "id": registerration.length,
+        "id": id,
         "course_name": courceName,
         "instructor": instructor,
         "name":studentName,
         "grade":"",
-        "statusRegster":"3",
+        "status":"Pending",
         
       })
+      
     localStorage.setItem('registerration', JSON.stringify(registerration));
 }
 function SuccusesRegister(infoClass)
 {
     modifyAvaliableSeats(infoClass.id);
     console.log()
-    addRegisterRecord(infoClass.course_name,infoClass.instructor,document.getElementById('UserName').textContent)
+    addRegisterRecord(infoClass.course_name,infoClass.instructor,document.getElementById('UserName').textContent,infoClass.id)
  alert("done")
 }
 async function checkNotRepeatSameCource(courceName)
@@ -167,10 +190,21 @@ async function assginUserName()
 {
     const username = getQueryParam('username');
     const welcomeMessage = document.getElementById('UserName');
-    welcomeMessage.textContent = ` ${username}`;  
+    welcomeMessage.textContent = `${username.trim()}`;  
 }
 async function initalScreen() {
+    let register=localStorage.getItem("registerration");
+if(register){
+    register=JSON.parse(localStorage.getItem("registerration"));
+}
+else{
+    const response = await fetch(RegisterationInfo);
+    register = await response.json();
+    localStorage.setItem("registerration",JSON.stringify(register))
+}
+
+    assginUserName();
     loadCourses();
     getRegisterTable();
-    assginUserName();
+    
 }
