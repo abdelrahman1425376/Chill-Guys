@@ -110,4 +110,49 @@ ul {
     text-decoration: none;
     border-radius: 5px;
 }
+@media (max-width: 767px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #ServicesNavigation {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 1rem;
+    }
+
+    #ServicesNavigation li {
+        margin: 5px 0;
+    }
+
+    #ServicesNavigation a {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .completed,
+    .in-progress,
+    .pending {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .courses h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    #completed li,
+    #InProgress li,
+    #Pending li {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+}
 

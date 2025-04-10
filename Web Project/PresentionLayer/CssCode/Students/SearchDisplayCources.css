@@ -63,3 +63,43 @@ body {
     background-color: black;
     color: white;
 }
+
+@media (max-width: 767px) {
+    #ServicesNavigation {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 1rem;
+    }
+
+    .nav-link {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    
+
+    #searchForm select,
+    #searchForm input,
+    #searchForm button {
+        width: 90%;
+        margin: 5px auto;
+    }
+
+    #availableCourses {
+        width: 100%;
+
+        display: block;
+    }
+
+    #availableCourses th,
+    #availableCourses td {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+}
