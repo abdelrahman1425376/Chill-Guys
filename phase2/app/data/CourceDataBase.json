@@ -1,0 +1,28 @@
+[
+    {
+      "id": 1,
+      "name": "Introduction to Programming",
+      "category": "Computer Science",
+      "prerequisite": "None"
+    },
+    {
+      "id": 2,
+      "name": "Data Science Basics",
+      "category": "Data Science",
+      "prerequisite": "Introduction to Programming"
+    },
+    {
+      "id": 3,
+      "name": "Digital Marketing",
+      "category": "Marketing",
+      "prerequisite": "None"
+    },
+    {
+      "id": 4,
+      "name": "Computer",
+      "category": "Computer Science",
+      "prerequisite": "None"
+    }
+   
+  ]
+  
