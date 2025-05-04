@@ -27,34 +27,17 @@ async function loadClasses() {
     let container = document.querySelector(".pending");
     let instructorName = document.getElementById("UserName").textContent;
     container.innerHTML = ""; 
-
-
-    const instructorClasses = register.filter(Class => Class.instructor === instructorName && Class.status === "InProgress");
-    const instructorSet=new Set();
-    instructorClasses.forEach(Class=>
-        instructorSet.add(Class.id)
-    )
-    
-    const instructorArray=Array.from(instructorSet);
-
-
-
-
-    instructorArray.forEach((id) => {
-        container.innerHTML += `<h3>${instructorClasses.find(Class=> Class.id == id).course_name} - CRN(${id}):</h3><ul>`;
-
-
-        const students = instructorClasses.filter((student) => student.id == id);
-        students.forEach((student) => {
-            console.log(student.name);
-            container.innerHTML += `<h4>UserName:${student.name}<h4>
-            <p>Grade: ${student.grade==""?"None":student.grade}<p>
+    const response = await fetch(`/api/register/instructor/${instructorName}`);
+   let  instructorClasses = await response.json();
+   instructorClasses.forEach((c) => {
+        container.innerHTML += `<h3>${c.course_name} - CRN(${c.id}):</h3><ul>`;
+       
+            container.innerHTML += `<h4>UserName:${c.instructor}<h4>
+            <p>Grade: ${c.grade==""?"None":c.grade} student name:${c.name}<p>
             `;
         });
 
-
-      
-    });
+  
 }
 async function initalScreen() {
     assginUserName();

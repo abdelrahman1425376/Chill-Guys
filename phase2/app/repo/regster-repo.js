@@ -79,6 +79,16 @@ async updateGrade(reg)
             }
           })
       }
+      async getRegisterByInfo(name)
+      {
+       return  await prisma.regesteration.findMany({
+            where: {
+              instructor: name,
+              status: "InProgress",
+      
+            }
+          })
+      }
      
 
 }
