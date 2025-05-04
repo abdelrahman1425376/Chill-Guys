@@ -9,6 +9,7 @@ export async function GET(req) {
     const AvgTeachers = await usersRepo.AvgTeachers();
     const getTeacherWithMostStudents = await usersRepo.getTeacherWithMostStudents();
     const getTeacherWithLeastStudents = await usersRepo.getTeacherWithLeastStudents();
+    const getHighestSubjectWithHighFail = await usersRepo. getHighestSubjectWithHighFail();
     const arr = [
         { value: parseInt(countStudents) },
         {  value: parseInt (countAdmins )},
@@ -17,9 +18,12 @@ export async function GET(req) {
         {  value: parseInt(AvgStudents) },
         {  value: parseInt(AvgAdmins) },
         {  value: parseInt(AvgTeachers) },
-        {  value: parseInt(getTeacherWithMostStudents) },
-        {  value: parseInt(getTeacherWithLeastStudents) }
+        {  value: getTeacherWithMostStudents },
+        {  value: getTeacherWithLeastStudents },
+        {  value: getHighestSubjectWithHighFail },
+
       ];
+      console.log(arr);
     
       return Response.json(arr);
 

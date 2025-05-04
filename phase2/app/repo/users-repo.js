@@ -74,31 +74,46 @@ class usersRepo {
     // }
 
    
-   
+    
    
     async getTeacherWithMostStudents() {
       const result = await prisma.regesteration.groupBy({
         by: ['instructor'],
         _count: {
-          name: true, 
+          id: true,
         },
         orderBy: {
           _count: {
-            name: 'desc',
+            id: 'desc',
           },
         },
         take: 1,
-      });
-    
-      if (result.length === 0) {
-        console.log("No instructors found.");
-        return null;
-      }
-    
-      const topInstructor = result[0];
-      console.log(`Top Instructor: ${topInstructor.instructor}, Students: ${topInstructor._count.name}`);
-      return topInstructor;
+      });    
+      const leastInstructor = result[0]._count.id;
+      return leastInstructor;
     }
+
+    async getHighestSubjectWithHighFail() {
+      const result = await prisma.regesteration.groupBy({
+        by: ['course_name'],
+        _count: {
+          id: true,
+        },
+        where: {
+          grade: 'F', // Adding the condition for grade 'F'
+        },
+        orderBy: {
+          _count: {
+            id: 'desc',
+          },
+        },
+        take: 1,
+      });    
+      const leastInstructor = result[0].course_name;
+      return leastInstructor;
+    }
+      
+    
 
 
 
@@ -107,23 +122,16 @@ class usersRepo {
       const result = await prisma.regesteration.groupBy({
         by: ['instructor'],
         _count: {
-          name: true,
+          id: true,
         },
         orderBy: {
           _count: {
-            name: 'asc',
+            id: 'asc',
           },
         },
         take: 1,
-      });
-    
-      if (result.length === 0) {
-        console.log("No instructors found.");
-        return null;
-      }
-    
-      const leastInstructor = result[0];
-      console.log(`Instructor with least students: ${leastInstructor.instructor}, Students: ${leastInstructor._count.name}`);
+      });    
+      const leastInstructor = result[0]._count.id;
       return leastInstructor;
     }
 }

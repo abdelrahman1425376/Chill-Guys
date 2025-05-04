@@ -51,16 +51,16 @@ import Link from 'next/link';
       <p className="stat-number">{arr[6]?.value}</p>
     </div>
     <div className="card">
-      <h2>Teacher With Most Students</h2>
+      <h2>number of students with highest Teacher that register with him</h2>
       <p className="stat-number">{arr[7]?.value}</p>
     </div>
     <div className="card">
-      <h2>Teacher With Least Students</h2>
+      <h2>number of students with lowest Teacher that register with him</h2>
       <p className="stat-number">{arr[8]?.value}</p>
     </div>
     <div className="card">
-      <h2>Total Students</h2>
-      <p className="stat-number">1,200</p>
+      <h2>HighestSubjectWithHighFail</h2>
+      <p className="stat-number">{String(arr[9]?.value)}</p>
     </div>
   </main>
 
