@@ -56,7 +56,7 @@ class usersRepo {
         role: 'teacher',
       },
     });
-    let totalUsers = await this.countusers(); // assuming countusers is defined in the same class/repo 
+    let totalUsers = await this.countusers(); 
     return await parseFloat(studentCount / totalUsers);
     }
   
@@ -68,13 +68,64 @@ class usersRepo {
             }
           });
 }
+
     // async getAllMeals() {
     //     return await prisma.cources.findMany();
     // }
 
    
    
+   
+    async getTeacherWithMostStudents() {
+      const result = await prisma.regesteration.groupBy({
+        by: ['instructor'],
+        _count: {
+          name: true, 
+        },
+        orderBy: {
+          _count: {
+            name: 'desc',
+          },
+        },
+        take: 1,
+      });
     
+      if (result.length === 0) {
+        console.log("No instructors found.");
+        return null;
+      }
+    
+      const topInstructor = result[0];
+      console.log(`Top Instructor: ${topInstructor.instructor}, Students: ${topInstructor._count.name}`);
+      return topInstructor;
+    }
+
+
+
+
+    async  getTeacherWithLeastStudents() {
+      const result = await prisma.regesteration.groupBy({
+        by: ['instructor'],
+        _count: {
+          name: true,
+        },
+        orderBy: {
+          _count: {
+            name: 'asc',
+          },
+        },
+        take: 1,
+      });
+    
+      if (result.length === 0) {
+        console.log("No instructors found.");
+        return null;
+      }
+    
+      const leastInstructor = result[0];
+      console.log(`Instructor with least students: ${leastInstructor.instructor}, Students: ${leastInstructor._count.name}`);
+      return leastInstructor;
+    }
 }
 
 export default new usersRepo();

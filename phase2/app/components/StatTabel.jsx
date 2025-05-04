@@ -23,40 +23,40 @@ import Link from 'next/link';
     <>
    <main className="stats-grid">
     <div className="card">
-      <h2>Total Students</h2>
+      <h2>Count Students</h2>
       <p className="stat-number">{arr[0]?.value}</p>
     </div>
     <div className="card">
-      <h2>Total Students</h2>
+      <h2>Count Admins</h2>
       <p className="stat-number">{arr[1]?.value}</p>
     </div>
     <div className="card">
-      <h2>Total Students</h2>
+      <h2>Count Teachers</h2>
       <p className="stat-number">{arr[2]?.value}</p>
     </div>
     <div className="card">
-      <h2>Total Students</h2>
+      <h2>Count Users</h2>
       <p className="stat-number">{arr[3]?.value}</p>
     </div>
     <div className="card">
-      <h2>Total Students</h2>
+      <h2>Avg Students</h2>
       <p className="stat-number">{arr[4]?.value}</p>
     </div>
     <div className="card">
-      <h2>Total Students</h2>
+      <h2>Avg Admins</h2>
       <p className="stat-number">{arr[5]?.value}</p>
       </div>
     <div className="card">
-      <h2>Total Students</h2>
+      <h2>Avg Teachers</h2>
       <p className="stat-number">{arr[6]?.value}</p>
     </div>
     <div className="card">
-      <h2>Total Students</h2>
-      <p className="stat-number">1,200</p>
+      <h2>Teacher With Most Students</h2>
+      <p className="stat-number">{arr[7]?.value}</p>
     </div>
     <div className="card">
-      <h2>Total Students</h2>
-      <p className="stat-number">1,200</p>
+      <h2>Teacher With Least Students</h2>
+      <p className="stat-number">{arr[8]?.value}</p>
     </div>
     <div className="card">
       <h2>Total Students</h2>
