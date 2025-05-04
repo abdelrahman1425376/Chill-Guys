@@ -1,17 +1,21 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    reactStrictMode: true,
-    distDir: '.next',
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//     reactStrictMode: true,
+//     distDir: '.next',
    
-    async redirects() {
-      return [
-        {
-          source: '/',
-          destination: '/Login.html',
-          permanent: false,
-        },
-      ]
-    }
-  };
+//     async redirects() {
+//       return [
+//         {
+//           source: '/',
+//           destination: '/Login.html',
+//           permanent: false,
+//         },
+//       ]
+//     }
+//   };
   
-  export default nextConfig;
+//   export default nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+export default nextConfig;
