@@ -1,4 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    reactStrictMode: true,
+    distDir: '.next',
+   
+    async redirects() {
+      return [
+        {
+          source: '/',
+          destination: '/Login.html',
+          permanent: false,
+        },
+      ]
+    }
+  };
+  
+  export default nextConfig;

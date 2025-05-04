@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="../../CssCode/Students/viewCourse.css">
+</head>
+<body>
+    <header>
+        <!-- <div id="UserName">username</div>
+        <div class="nav-container">
+            <nav>
+                <a href="SearchDisplayCources.html">Display Courses</a>
+                <a href="viewCourse.html">View Learning Path</a>
+                <a href="RegisterCource.html">Register Course</a>
+            </nav>
+            <a href="logout.html" class="logout-btn">Logout</a>
+        </div> -->
+        <nav>
+            <ul id="ServicesNavigation">
+                <li><a class="nav-link" id="UserName" href="#">UserName</a></li>
+                <li><a class="nav-link" href="#" onclick="navigateTo('SearchDisplayCources.html')">Display Courses</a></li>
+                <li><a class="nav-link" href="#" onclick="navigateTo('RegisterCource.html')">Register Course</a></li>
+                <li><a class="nav-link" href="#" onclick="navigateTo('viewCourse.html')">viewCourse</a></li>
+ 
+                <li><a class="nav-link" href="../Login.html">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <main>
+        <section class="courses completed">
+            <h2>Completed Courses</h2>
+            <ul id="completed">
+                
+            </ul>
+        </section>
+
+        <section class="courses in-progress">
+            <h2>In Progress</h2>
+            <ul id="InProgress">
+                
+            </ul>
+        </section>
+
+        <section class="courses pending">
+            <h2>Pending Courses</h2>
+            <ul id="Pending">
+              
+            </ul>
+        </section>
+    </main>
+    <script src="../../JavaScriptCode/Students/viewCourse.js"></script>
+</body>
+</html>

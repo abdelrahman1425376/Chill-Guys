@@ -13,13 +13,17 @@ async function seed() {
   const cources = await fse.readJson(courcePath);
   const users = await fse.readJson(usersPath);
   const Regestrations = await fse.readJson(RegestrationPath);
-  const Classess = await fse.readJson(ClassessPath);
+  const classess = await fse.readJson(ClassessPath);
+  await prisma.classess.deleteMany();
+  await prisma.regesteration.deleteMany();
+  await prisma.users.deleteMany();
+  await prisma.cources.deleteMany();
 
   for (const Regestration of Regestrations) {
-    await prisma.Regestrations.create({ data: Regestration });
+    await prisma.regesteration.create({ data: Regestration });
   }
-  for (const Class of Classess) {
-    await prisma.Classess.create({ data: Class });
+  for (const Class of classess) {
+    await prisma.classess.create({ data: Class });
   }
   for (const user of users) {
     await prisma.users.create({ data: user });

@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      
       "course_name": "Introduction to Programming",
       "instructor": "John Doe",
       "name":"student_user",
@@ -10,7 +10,7 @@
     },
 
     {
-      "id": 5,
+     
       "course_name": "Data Science Basics",
       "instructor": "teacher_user",
       "name":"student_user",
@@ -19,7 +19,6 @@
       
     },
     {
-      "id": 3,
       "course_name": "Digital Marketing",
       "instructor": "teacher_user",
       "name":"student_user",
@@ -28,7 +27,7 @@
 
     },
     {
-      "id": 3,
+      
       "course_name": "Digital Marketing",
       "instructor": "teacher_user",
       "name":"student_user1",
@@ -37,7 +36,6 @@
 
     },
     {
-      "id": 3,
       "course_name": "Digital Marketing",
       "instructor": "teacher_user",
       "name":"student_user2",

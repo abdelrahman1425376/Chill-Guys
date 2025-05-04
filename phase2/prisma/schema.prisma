@@ -3,7 +3,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
 }
 
 datasource db {
@@ -27,25 +26,25 @@ model cources {
 }
 model regesteration {
   id           Int      @id @default(autoincrement())
-  CourceName  String
+  course_name  String
   instructor String
-  Studentname String
-    grade String
+  name String
+    grade String?
   status String
 }
 model classess {
   id           Int      @id @default(autoincrement())
-  CourceName  String
+  course_name  String
+    category String
   instructor String
-  category String
-  seats String
-  available_seats String
+  seats Int
+  available_seats Int
   prerequisite String
   validation String
 }
 model Preclassess {
   id           Int      @id @default(autoincrement())
-  CourceName  String
+  course_name  String
   instructor String
   category String
   seats String
