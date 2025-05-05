@@ -14,6 +14,18 @@ async updateGrade(reg)
       });
       
 }
+async updateSeats(reg)
+{
+    return await prisma.classess.update({
+        where: {
+          id: parseInt(reg.id), // Make sure reg.id exists and is the primary key
+        },
+        data: {
+          available_seats: reg.available_seats, // Only updating grade
+        }
+      });
+      
+}
     async createRegister(reg) {
         return  await prisma.regesteration.create({
             data: {

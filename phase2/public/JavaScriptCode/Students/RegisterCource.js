@@ -82,11 +82,16 @@ function failRegister()
 }
 async function modifyAvaliableSeats(id)
 {
-   
-    // let Precource=Precources.find(cource=>cource.id == id && cource.validation!="Unvalid")
-    // cource=cources.find(cource=>cource.id==id)
-    // cource.available_seats-=1;
-    // Precource.available_seats-=1;
+    const response1 = await fetch(`/api/classess/${id}`);
+   let  classe = await response1.json(); 
+   classe.available_seats-=1;
+        const response2 = await fetch(`/api/classess/${id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(classe)
+          });  
     const response = await fetch(`/api/classess`);
     classess = await response.json(); 
     displayCourses(classess);
