@@ -14,25 +14,22 @@ async function seed() {
   const users = await fse.readJson(usersPath);
   const Regestrations = await fse.readJson(RegestrationPath);
   const classess = await fse.readJson(ClassessPath);
-  await prisma.classess.deleteMany();
-  await prisma.regesteration.deleteMany();
-  await prisma.users.deleteMany();
-  await prisma.cources.deleteMany();
+
 
   for (const Regestration of Regestrations) {
     await prisma.regesteration.create({ data: Regestration });
   }
-  for (const Class of classess) {
-    await prisma.classess.create({ data: Class });
-  }
-  for (const user of users) {
-    await prisma.users.create({ data: user });
-  }
+  // for (const Class of classess) {
+  //   await prisma.classess.create({ data: Class });
+  // }
+  // for (const user of users) {
+  //   await prisma.users.create({ data: user });
+  // }
 
-  for (const cource of cources) {
-    await prisma.cources.create({data: cource
-    });
-  }
+  // for (const cource of cources) {
+  //   await prisma.cources.create({data: cource
+  //   });
+  // }
   
   console.log('✅ Database seeded successfully!');
 }

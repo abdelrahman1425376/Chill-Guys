@@ -94,7 +94,7 @@ class usersRepo {
     }
 
     async getHighestSubjectWithHighFail() {
-      const result = await prisma.regesteration.groupBy({
+      let result = await prisma.regesteration.groupBy({
         by: ['course_name'],
         _count: {
           id: true,
@@ -112,7 +112,8 @@ class usersRepo {
       const leastInstructor = result[0].course_name;
       return leastInstructor;
     }
-      
+   
+    
     
 
 

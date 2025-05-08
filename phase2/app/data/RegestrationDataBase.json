@@ -1,48 +1,331 @@
 [
-    {
-      
-      "course_name": "Introduction to Programming",
-      "instructor": "John Doe",
-      "name":"student_user",
-      "grade":"A",
-      "status":"completed"
-      
-    },
-
-    {
-     
-      "course_name": "Data Science Basics",
-      "instructor": "teacher_user",
-      "name":"student_user",
-      "grade":"A",
-      "status":"InProgress"
-      
-    },
-    {
-      "course_name": "Digital Marketing",
-      "instructor": "teacher_user",
-      "name":"student_user",
-      "grade":"",
-      "status":"InProgress"
-
-    },
-    {
-      
-      "course_name": "Digital Marketing",
-      "instructor": "teacher_user",
-      "name":"student_user1",
-      "grade":"",
-      "status":"InProgress"
-
-    },
-    {
-      "course_name": "Digital Marketing",
-      "instructor": "teacher_user",
-      "name":"student_user2",
-      "grade":"",
-      "status":"InProgress"
-
-    }
- 
-  ]
-  
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user35",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Introduction to Programming",
+    "instructor": "John Doe",
+    "name": "student_user12",
+    "grade": "B",
+    "status": "completed"
+  },
+  {
+    "course_name": "Data Science Basics",
+    "instructor": "teacher_user",
+    "name": "student_user41",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Cloud Fundamentals",
+    "instructor": "teacher_lee",
+    "name": "student_user3",
+    "grade": "C",
+    "status": "completed"
+  },
+  {
+    "course_name": "Web Development",
+    "instructor": "teacher_smith",
+    "name": "student_user25",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user16",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Cloud Fundamentals",
+    "instructor": "teacher_lee",
+    "name": "student_user6",
+    "grade": "A",
+    "status": "completed"
+  },
+  {
+    "course_name": "Data Science Basics",
+    "instructor": "teacher_user",
+    "name": "student_user27",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user11",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Web Development",
+    "instructor": "teacher_smith",
+    "name": "student_user7",
+    "grade": "B",
+    "status": "completed"
+  },
+  {
+    "course_name": "Introduction to Programming",
+    "instructor": "John Doe",
+    "name": "student_user22",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user33",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Cloud Fundamentals",
+    "instructor": "teacher_lee",
+    "name": "student_user14",
+    "grade": "F",
+    "status": "completed"
+  },
+  {
+    "course_name": "Data Science Basics",
+    "instructor": "teacher_user",
+    "name": "student_user21",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user4",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Web Development",
+    "instructor": "teacher_smith",
+    "name": "student_user5",
+    "grade": "A",
+    "status": "completed"
+  },
+  {
+    "course_name": "Introduction to Programming",
+    "instructor": "John Doe",
+    "name": "student_user8",
+    "grade": "C",
+    "status": "completed"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user10",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Cloud Fundamentals",
+    "instructor": "teacher_lee",
+    "name": "student_user38",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Data Science Basics",
+    "instructor": "teacher_user",
+    "name": "student_user9",
+    "grade": "D",
+    "status": "completed"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user13",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Web Development",
+    "instructor": "teacher_smith",
+    "name": "student_user18",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Introduction to Programming",
+    "instructor": "John Doe",
+    "name": "student_user17",
+    "grade": "B",
+    "status": "completed"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user19",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Cloud Fundamentals",
+    "instructor": "teacher_lee",
+    "name": "student_user20",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Data Science Basics",
+    "instructor": "teacher_user",
+    "name": "student_user23",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user24",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Web Development",
+    "instructor": "teacher_smith",
+    "name": "student_user26",
+    "grade": "A",
+    "status": "completed"
+  },
+  {
+    "course_name": "Introduction to Programming",
+    "instructor": "John Doe",
+    "name": "student_user28",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user29",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Cloud Fundamentals",
+    "instructor": "teacher_lee",
+    "name": "student_user30",
+    "grade": "B",
+    "status": "completed"
+  },
+  {
+    "course_name": "Data Science Basics",
+    "instructor": "teacher_user",
+    "name": "student_user31",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user32",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Web Development",
+    "instructor": "teacher_smith",
+    "name": "student_user34",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Introduction to Programming",
+    "instructor": "John Doe",
+    "name": "student_user36",
+    "grade": "A",
+    "status": "completed"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user37",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Cloud Fundamentals",
+    "instructor": "teacher_lee",
+    "name": "student_user39",
+    "grade": "F",
+    "status": "completed"
+  },
+  {
+    "course_name": "Data Science Basics",
+    "instructor": "teacher_user",
+    "name": "student_user40",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user42",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Web Development",
+    "instructor": "teacher_smith",
+    "name": "student_user43",
+    "grade": "B",
+    "status": "completed"
+  },
+  {
+    "course_name": "Introduction to Programming",
+    "instructor": "John Doe",
+    "name": "student_user44",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user45",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Cloud Fundamentals",
+    "instructor": "teacher_lee",
+    "name": "student_user46",
+    "grade": "C",
+    "status": "completed"
+  },
+  {
+    "course_name": "Data Science Basics",
+    "instructor": "teacher_user",
+    "name": "student_user47",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Digital Marketing",
+    "instructor": "teacher_user",
+    "name": "student_user48",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Web Development",
+    "instructor": "teacher_smith",
+    "name": "student_user49",
+    "grade": "",
+    "status": "InProgress"
+  },
+  {
+    "course_name": "Introduction to Programming",
+    "instructor": "John Doe",
+    "name": "student_user50",
+    "grade": "A",
+    "status": "completed"
+  }
+]
