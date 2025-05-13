@@ -81,7 +81,7 @@ async updateSeats(reg)
             },
           });
       }
-      async getRegisterByInfo(name,CRN,sname)
+      async getRegisterByInfo1(name,CRN,sname)
       {
        return  await prisma.regesteration.findFirst({
             where: {

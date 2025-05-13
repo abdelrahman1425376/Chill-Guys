@@ -25,7 +25,14 @@ async function SubmitGrade(){
     let instructorRegister = await response.json();
    console.log( instructorRegister)
     if(instructorRegister){
-        
+        instructorRegister.grade=Grade;
+        const response1 = await fetch('/api/register', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(instructorRegister)
+          });         window.alert("Done")
     }
     else{
         window.alert("The Student Does Not Exist")
