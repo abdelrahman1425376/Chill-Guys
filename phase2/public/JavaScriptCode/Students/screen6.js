@@ -14,15 +14,15 @@ async function assginUserName()
     welcomeMessage.textContent = `${username}`;  
 }
 async function loadClasses() {
-    let register = localStorage.getItem("registerration");
+    // let register = localStorage.getItem("registerration");
 
-    if (register) {
-        register = JSON.parse(register);
-    } else {
-        const response = await fetch(RegisterationInfo);
-        register = await response.json();
-        localStorage.setItem("registerration", JSON.stringify(register));
-    }
+    // if (register) {
+    //     register = JSON.parse(register);
+    // } else {
+    //     const response = await fetch(RegisterationInfo);
+    //     register = await response.json();
+    //     localStorage.setItem("registerration", JSON.stringify(register));
+    // }
 
     let container = document.querySelector(".pending");
     let instructorName = document.getElementById("UserName").textContent;

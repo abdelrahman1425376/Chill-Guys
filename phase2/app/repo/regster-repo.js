@@ -4,6 +4,7 @@ class registerRepo {
    
 async updateGrade(reg)
 {
+  console.log(reg.id)
     return await prisma.regesteration.update({
         where: {
           id: parseInt(reg.id), // Make sure reg.id exists and is the primary key
@@ -86,7 +87,7 @@ async updateSeats(reg)
             where: {
               instructor: name,
               status: "InProgress",
-              id:  CRN,
+              id:  parseInt(CRN),
               name: sname
             }
           })
